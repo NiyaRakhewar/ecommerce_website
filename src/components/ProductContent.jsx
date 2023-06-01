@@ -2,6 +2,8 @@ import React, { useContext } from 'react'
 // import {HomeContext} from "../context/HomeContext"
 import { FaRegHeart, FaShoppingCart} from "react-icons/fa";
 import { ProductListContext } from '../context/ProductListContext';
+import { AddingToCart } from './AddingToCart';
+import { AddingToWishlist } from './AddingToWishlist';
 export const ProductContent = () => {
 
   const { state } = useContext(ProductListContext);
@@ -33,13 +35,13 @@ export const ProductContent = () => {
                return (<div key={product_name} className='prod-div'>
               <li key={_id}  className='product-page-li'>
                          <img  alt="img" src={product_url}/>                 
-            <div><button className='icon'><FaRegHeart /></button></div>
+                           <AddingToWishlist product={product} />
                            <h3>{product_name}</h3>
                            <p>{product_type}</p>
                            <p>{product_rating} ⭐ </p>
                            <p>{product_category}</p>
                            <p className='price-tag'>₹ {product_price}</p>
-                           <button><FaShoppingCart /> Add to Cart</button>
+                           <AddingToCart product={product}/>
          </li>
          
                </div>)

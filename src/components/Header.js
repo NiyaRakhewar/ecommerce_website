@@ -40,32 +40,35 @@ export const Header = () => {
 
    
   <div>
-  <Link to="/productpage"> <button className='all-list' onClick={()=> dispatch({type: "EACH_CATEGORY", payload: "All"})}> Explore </button></Link>
+  <Link to="/productpage"> <button style={{backgroundColor: "white"}}className='all-list' onClick={()=> dispatch({type: "EACH_CATEGORY", payload: "All"})}> Explore </button></Link>
    
   </div>
 
      <div>
      {token ? (
           <Link to="/profile">
-            <FontAwesomeIcon icon={faUser} size="xl"  />
+            <FontAwesomeIcon icon={faUser} size="xl" style={{color: "white"}} />
           </Link>
         ) : (
-          <Link to="/login"><button>Login</button></Link>
+          <Link to="/login"><button style={{backgroundColor: "white"}}>Login</button></Link>
         )}
      </div>
 
-      <div>
-      <Link to="/wishList">
-          <FaRegHeart fontSize={25}/>
+      <div className="count">
+      <Link to="/wishList" className="cart-icon-wrapper">
+      {state.wishlist.length > 0 && token && (
+            <div className="wishlist-length">{state.wishlist.length}</div>
+          )}
+      <FontAwesomeIcon icon={faHeart} size="xl" style={{color: "white"}} />
         </Link>
       </div>
 
-     <div>
+     <div className="count">
      <Link to="/cart" className="cart-icon-wrapper">
-          {/* {state.cart.length > 0 && token && (
+          {state.cart.length > 0 && token && (
             <div className="cart-length">{state.cart.length}</div>
-          )} */}
-          <FontAwesomeIcon icon={faCartShopping} size="xl"  />
+          )}
+          <FontAwesomeIcon icon={faCartShopping} size="xl"  style={{color: "white"}}/>
         </Link>
      </div>
 

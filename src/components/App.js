@@ -10,6 +10,7 @@ import { SignUp } from "./pages/SignUp";
 import { RequireAuth } from "./RequireAuth";
 import { Profile } from "./pages/Profile";
 import {Header} from '../components/Header'
+import { Footer } from "./Footer";
 
 function App() {
 
@@ -30,6 +31,9 @@ function App() {
     <Route path="/cart" element={<RequireAuth> <Cart /> </RequireAuth>}/>
     <Route path="/mockman" element={<Mockman />}/>
    </Routes>
+
+
+   <Footer />
     </div>
   );
 }

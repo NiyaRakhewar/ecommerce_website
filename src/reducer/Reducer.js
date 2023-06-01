@@ -7,7 +7,8 @@ range: 1000,
 sortValue: "All",
 rating: 0,
 searchValue: "",
-// isLoggedIn: false
+cart: [],
+wishlist: []
 }
 export const reducer = (state, action) =>{
 switch(action.type){
@@ -42,8 +43,18 @@ switch(action.type){
     case 'SEARCH_DATA':
         return {...state, searchValue: action.payload}
 
-    // case 'CHANGE_LOGGED_STATUS':
-    //     return {...state, isLoggedIn: action.payload}
+    case 'ADD-TO-CART':
+        return {...state, cart: action.payload}
+    
+    case 'REMOVE_FROM_CART':
+        return {...state, cart: action.payload}
+
+    case 'ADD-TO-WISHLIST':
+        return {...state, wishlist: action.payload}
+
+    case 'REMOVE_FROM_WISHLIST':
+        return {...state, wishlist: action.payload}
+
 
     default:
         return state

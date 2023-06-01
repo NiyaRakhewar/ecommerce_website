@@ -1,5 +1,6 @@
 .App {
   /* text-align: center; */
+  max-height: 100%;
   background-color: rgb(246, 240, 240);
 }
 
@@ -60,6 +61,7 @@
 } */
 
 .header {
+  
   display: flex;
   justify-content: space-between;
   margin: -14px -10px;
@@ -84,6 +86,36 @@
   margin-top: 10px;
 
 }
+.cart-icon-wrapper .wishlist-length {
+  position: absolute;
+  top: 1px;
+  right: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
+.cart-icon-wrapper .cart-length {
+  position: absolute;
+  top: -1px;
+  right: -5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  color: white;
+  font-size: 12px;
+  border-radius: 50%;
+}
+
 
 .user-auth-icon button{
 

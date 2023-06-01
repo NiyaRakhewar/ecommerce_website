@@ -10,7 +10,6 @@ export const Home = () => {
     <div className="content">
       <PageInformation />
       <Categories />
-      <Footer />
     </div>
   );
 };
