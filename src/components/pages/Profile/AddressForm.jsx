@@ -68,7 +68,7 @@ export const AddressForm = ({ details }) => {
   };
 
   return (
-    <div>
+    <div className="address-form-container">
       <input
         type="text"
         placeholder="name"
@@ -100,7 +100,7 @@ export const AddressForm = ({ details }) => {
         onChange={(e) => handleFormInput(e, "state")}
       />
       <textarea
-        style={{ padding: "0px", textAlign: "center" }}
+        style={{ padding: "0px" }}
         name=""
         id=""
         cols="30"

@@ -17,7 +17,7 @@
   align-items: center;
   gap: 2rem;
   width: 90%;
-  border: 2px solid #7149c6;
+  border: 2px solid #499ac6;
   padding: 0.75rem;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -30,13 +30,23 @@
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #7149c6;
+  background-color: #366268;
   color: white;
-  border: 0.125rem solid #7149c6;
+  border: 0.125rem solid #12434a;
   margin: 0;
 }
 
 .add-address-label {
   font-size: 1.2rem;
   margin: 0;
+}
+
+.list-stacked-item,
+.address-list-stacked-item {
+  margin-left: -300px;
+}
+
+.list-stacked-item button {
+  padding: 10px 20px;
+  margin-right: 20px;
 }

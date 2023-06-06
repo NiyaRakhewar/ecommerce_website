@@ -13,17 +13,18 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
   width: -webkit-fit-content;
   width: -moz-fit-content;
+  min-height: 300px;
   /* width: fit-content; */
-  width: 600px;
+  width: 727px;
   height: fit-content;
-
+  margin-top: -80px;
   margin-bottom: 2rem;
   background-color: #dcfff7;
 }
 
 .profile-nav {
   background-color: rgb(31, 108, 109);
-  padding: 0 2rem;
+  padding: 0 1rem;
   gap: 3rem;
 }
 
@@ -31,6 +32,7 @@
 .profile-nav-item {
   display: flex;
   justify-content: center;
+  gap: 0;
 }
 
 .profile-nav-item {
@@ -56,7 +58,7 @@
 .profile-details-container {
   display: flex;
   flex-direction: column;
-  margin-top: 4rem;
+  /* margin-top: 4rem; */
   grid-gap: 1rem;
   gap: 1rem;
   padding: 1.5rem;
@@ -90,4 +92,8 @@
   cursor: pointer;
   background-color: red;
   box-shadow: 1px 0px 2px 2px rgba(0, 0, 0, 0.35);
+}
+
+.order-summary-container {
+  margin-left: 25px;
 }

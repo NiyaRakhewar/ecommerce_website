@@ -9,6 +9,11 @@ export const Checkout = () => {
 
   const totalItems = state.cart.reduce((acc, curr) => acc + curr.qty, 0);
 
+  const orderHandler = () => {
+    dispatch({ type: "CART_EMPTY" });
+    navigate("/profile/ordersummary");
+  };
+
   return (
     <div
       style={{ display: "flex", flexDirection: "column" }}
@@ -105,9 +110,7 @@ export const Checkout = () => {
             </ul>
 
             <div className="text-center">
-              <button onClick={() => navigate("/profile/ordersummary")}>
-                PLACE ORDER
-              </button>
+              <button onClick={orderHandler}>PLACE ORDER</button>
             </div>
           </div>
         </div>

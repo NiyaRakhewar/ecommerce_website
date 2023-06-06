@@ -47,14 +47,15 @@ export const Addresses = () => {
           )}
         </div>
 
-        <div className="list-stacked address-list">
-          {state.addressList.map((details) => {
+        <ul className="list-stacked address-list">
+          {state.addressList.map((details, i) => {
             const { id, name, mobile, city, pincode, address, state } = details;
+
             const isEditing = state.editAddressId === id;
 
             return (
               <div
-                key={id}
+                key={i}
                 className="list-stacked-item address-list-stacked-item"
               >
                 {isEditing ? (
@@ -85,7 +86,7 @@ export const Addresses = () => {
               </div>
             );
           })}
-        </div>
+        </ul>
       </div>
     </div>
   );

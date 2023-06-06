@@ -47,7 +47,7 @@
 
 .text-area {
   resize: none;
-  height: 150px;
+  height: 50px;
   margin-top: 1rem;
   letter-spacing: 1px;
   line-height: 1.5;
@@ -58,7 +58,7 @@
   flex-basis: 25%;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #7149c6;
+  background-color: #477b82;
   padding: 0.75rem;
   border: none;
   border-radius: 0.25rem;
@@ -79,4 +79,25 @@
 
 .name-input-container {
   white-space: nowrap;
+}
+
+/* .address-form-container {
+} */
+
+.address-form-container input {
+  border: 1px solid gray;
+  margin-bottom: 5px;
+}
+
+.address-form-container button {
+  margin-left: 30px;
+  margin-right: 20px;
+  padding: 12px 25px;
+}
+
+.address-form-container textarea {
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  border: 1px solid gray;
 }

@@ -3,6 +3,7 @@ import { NavLink, Route, Routes } from "react-router-dom";
 import "../../styles/Profile.css";
 import { Details } from "./Details";
 import { Addresses } from "./Addresses";
+import { OrderSummary } from "./OrderSummary";
 // import { AuthContext } from "../../../context/AuthContext";
 // import { ProductListContext } from "../../context/ProductListContext";
 
@@ -35,6 +36,9 @@ export const Profile = () => {
             <NavLink to="/profile/addresses" className={toggleActive}>
               Addresses
             </NavLink>
+            <NavLink to="/profile/ordersummary" className={toggleActive}>
+              Order Summary
+            </NavLink>
           </div>
           <Routes>
             <Route path="details" element={<Details />} />
@@ -42,6 +46,10 @@ export const Profile = () => {
 
           <Routes>
             <Route path="addresses" element={<Addresses />} />
+          </Routes>
+
+          <Routes>
+            <Route path="ordersummary" element={<OrderSummary />} />
           </Routes>
         </div>
       </div>
