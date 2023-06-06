@@ -10,7 +10,7 @@ import { SignUp } from "./pages/SignUp";
 import { RequireAuth } from "./RequireAuth";
 import { Profile } from "./pages/Profile/Profile";
 import { Header } from "../components/Header";
-import { Footer } from "./Footer";
+
 import { ProductInfoPage } from "./pages/ProductInfoPage";
 import { Checkout } from "./pages/Checkout";
 
@@ -52,9 +52,7 @@ function App() {
           <Route path="/mockman" element={<Mockman />} />
         </Routes>
       </div>
-      <div className="App-footer">
-        <Footer />
-      </div>
+      <div className="App-footer"></div>
     </div>
   );
 }

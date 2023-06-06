@@ -5,6 +5,7 @@ import { PageInformation } from "../PageInformation";
 import ".././styles/Home.css";
 import { Loader } from "../Loader";
 import { useEffect, useState } from "react";
+import { Footer } from "../Footer";
 export const Home = () => {
   // const { state } = useContext(ProductListContext);
   const [isLoader, setIsLoader] = useState(true);
@@ -27,6 +28,7 @@ export const Home = () => {
       <div className="content">
         <PageInformation />
         <Categories />
+        <Footer />
       </div>
     </>
   );
