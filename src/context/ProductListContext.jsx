@@ -1,9 +1,13 @@
 import React, { createContext, useEffect, useReducer } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { initialState, reducer } from "./../Reducer/reducer";
 =======
 import { initialState, reducer } from "../reducer/reducer";
 >>>>>>> 373e5ec2a27b3c6c0f38e7d0ced2abbc0ad1f101
+=======
+import { initialState, reducer } from "../Reducer/reducer";
+>>>>>>> 36d633544b9a669255e4a64a106ff5ac11df24c6
 export const ProductListContext = createContext();
 export const ProductListProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
