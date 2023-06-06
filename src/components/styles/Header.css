@@ -102,3 +102,7 @@
 .search_item {
   background-color: aqua;
 }
+
+.search_bar input {
+  cursor: pointer;
+}
