@@ -1,41 +1,68 @@
-import React, { useContext } from 'react'
-import { ProductListContext } from '../../context/ProductListContext'
-import { RemoveFromWishlist } from '../RemoveFromWishlist'
-import { AddingToCart } from '../AddingToCart'
-import { Link } from 'react-router-dom'
-
+import React, { useContext } from "react";
+import { ProductListContext } from "../../context/ProductListContext";
+import { RemoveFromWishlist } from "../RemoveFromWishlist";
+import { AddingToCart } from "../AddingToCart";
+import { Link } from "react-router-dom";
+import "../styles/Wishlist.css";
+import { ToastContainer } from "react-toastify";
 export const Wishlist = () => {
-  const {state} = useContext(ProductListContext)
+  const { state } = useContext(ProductListContext);
 
-  console.log("map cart", state.cart)
+  console.log("map cart", state.cart);
   return (
-    <div>
-     <div>
-     <h2>{state.wishlist.length === 0 ? "Your Wishlist Is Empty":`Wishlist Items: ${state.wishlist.length}`}</h2>
-     </div>
-     <div>
-     {state.wishlist.map((product)=>
-     
-     {
-      const {_id, product_name, product_url, product_type, product_category, product_price, product_rating} = product
-      return (<div key={product_name} className='prod-div'>
-     <li key={_id}  className='product-page-li'>
-     <Link to={`/productinfopage/${_id}`} className='product-page-li'>
-                <img  alt="img" src={product_url}/>                 
-                  <h3>{product_name}</h3>
-                  <p>{product_type}</p>
-                  <p>{product_rating} ⭐ </p>
-                  <p>{product_category}</p>
-                  <p className='price-tag'>₹ {product_price}</p>
-                </Link>
-                
-                <RemoveFromWishlist product={product}/>
-                <AddingToCart product={product}/>
-</li>
+    <>
+      <ToastContainer />
+      {state.wishlist.length === 0 ? (
+        <div className="topToBody empty-wishlist">
+          {/* <img src={"emptyWishlist"} alt="" /> */}
+          <h1>Your Wishlist is empty</h1>
+        </div>
+      ) : (
+        <div className="main-wishlist">
+          <h3>Wishlist Items ( {state.wishlist.length} )</h3>
+          <div className="topToBody wishlist-card">
+            {state.wishlist.map((product, i) => {
+              const {
+                _id,
+                product_name,
+                product_url,
+                product_type,
+                product_price,
+              } = product;
 
-      </div>)
-  })}
-     </div>
-    </div>
-  )
-}
+              return (
+                <div key={i} className="product-card">
+                  <Link
+                    to={`/productinfopage/${_id}`}
+                    className="product-items"
+                  >
+                    <img alt="img" src={product_url} />
+                    <div className="details">
+                      <div className="description">
+                        <h3>{product_name}</h3>
+                        <p>{product_type}</p>
+                      </div>
+
+                      <div className="price-container">
+                        <h3 className="price">{product_price}</h3>
+                      </div>
+                    </div>
+                  </Link>
+
+                  <div className="btn">
+                    <div className="remove-wishlist">
+                      <RemoveFromWishlist product={product} />
+                    </div>
+                    <div className="add-cart">
+                      <AddingToCart product={product} />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </>
+  );
+};

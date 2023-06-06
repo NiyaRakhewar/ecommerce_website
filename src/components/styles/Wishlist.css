@@ -1,0 +1,145 @@
+.main-wishlist h3 {
+  text-align: center;
+}
+
+.wishlist-card {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+  /* height: 100vh; */
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.empty-wishlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: #107679;
+  height: 70vh;
+}
+
+.empty-wishlist img {
+  width: 260px;
+}
+
+.product-card {
+  background-color: rgb(224, 249, 249);
+  box-shadow: 1px 0px 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 0.3rem;
+}
+
+.product-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.food-content-wishlist {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 2.5rem;
+  background-color: #3c8a70;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0px;
+  border-bottom-left-radius: 10px;
+}
+
+.cart-wishlist-btn {
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.product-card a {
+  text-decoration: none;
+  color: black;
+}
+
+.details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.details h3 {
+  margin-top: -5px;
+  margin-bottom: 0px;
+  margin-left: 10px;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: -20px;
+  height: 80px; /* Set a fixed height for the description container */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+.description p {
+  font-size: 16px;
+  margin-left: 15px;
+
+  line-height: 0.1rem;
+  /* flex-grow: 2; */
+}
+
+.price-container {
+  display: flex;
+  margin-top: 30px;
+  margin-right: 10px;
+
+  /* justify-content: flex-end; */
+}
+
+.price {
+  margin-left: auto;
+}
+
+.product-items {
+  width: 100%;
+}
+
+.add-cart {
+  width: 97%;
+  margin-left: 4px;
+}
+
+/* .food-items button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #b468fa;
+  border-radius: 5px;
+  border: none;
+  color: #f2f2f2;
+  font-size: 16px;
+} */
+
+@media (max-width: 768px) {
+  /* Styles for tablet */
+  .wishlist-card {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Styles for mobile */
+  .wishlist-card {
+    width: 100%;
+    top: 10rem;
+
+    box-sizing: border-box;
+  }
+}

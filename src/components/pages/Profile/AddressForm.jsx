@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-
+import "../../styles/AddressForm.css";
 import { ProductListContext } from "../../../context/ProductListContext";
 
 export const AddressForm = ({ details }) => {
@@ -62,6 +62,7 @@ export const AddressForm = ({ details }) => {
       mobile: randomAddress.mobile,
       city: randomAddress.city,
       pincode: randomAddress.pincode,
+      state: randomAddress.state,
       address: randomAddress.address,
     });
   };
@@ -70,34 +71,41 @@ export const AddressForm = ({ details }) => {
     <div>
       <input
         type="text"
+        placeholder="name"
         value={detailsInput.name}
         onChange={(e) => handleFormInput(e, "name")}
       />
       <input
         type="text"
+        placeholder="mobile"
         value={detailsInput.mobile}
         onChange={(e) => handleFormInput(e, "mobile")}
       />
       <input
         type="text"
+        placeholder="city"
         value={detailsInput.city}
         onChange={(e) => handleFormInput(e, "city")}
       />
       <input
         type="text"
+        placeholder="pincode"
         value={detailsInput.pincode}
         onChange={(e) => handleFormInput(e, "pincode")}
       />
       <input
         type="text"
+        placeholder="state"
         value={detailsInput.state}
         onChange={(e) => handleFormInput(e, "state")}
       />
       <textarea
+        style={{ padding: "0px", textAlign: "center" }}
         name=""
         id=""
         cols="30"
         rows="10"
+        placeholder="address..."
         value={detailsInput.address}
         onChange={(e) => handleFormInput(e, "address")}
       />

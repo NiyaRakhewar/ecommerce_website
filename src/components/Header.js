@@ -32,7 +32,7 @@ export const Header = () => {
 
         <div className="header-icons-container">
           <div className="header-explore">
-            <Link to="/productpage">
+            <Link to="/productpage" onClick={() => dispatch({ type: "CLEAR" })}>
               {" "}
               <button
                 className="explore-button"
@@ -40,8 +40,7 @@ export const Header = () => {
                   dispatch({ type: "EACH_CATEGORY", payload: "All" })
                 }
               >
-                {" "}
-                Explore{" "}
+                {/* onClick={() => dispatch({ type: "CLEAR" })} */} Explore{" "}
               </button>
             </Link>
           </div>

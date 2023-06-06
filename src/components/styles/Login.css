@@ -1,0 +1,200 @@
+/* Common styles */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: #59c173; */
+  background: -webkit-linear-gradient(to right, #4aaa9b, #97f0e9);
+  background: linear-gradient(to right, #7cb1b1, #3e8595);
+}
+
+.login-password {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.login-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 26rem;
+  background-color: white;
+  box-sizing: border-box;
+}
+.signup-container {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  width: 26rem;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.login-details {
+  padding: 1.5rem 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-container h1 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+}
+
+.login-details input {
+  padding: 10px;
+  font-size: 1rem;
+  display: block;
+}
+
+.password-input-container {
+  position: relative;
+  width: 100%;
+}
+
+.password-input-container input {
+  padding-right: 40px;
+  width: 90%;
+}
+#confirm-password-input {
+  margin-top: 0.5rem;
+}
+
+.signup-password-input-container {
+  position: relative;
+  padding-right: 40px;
+  width: 90%;
+}
+
+.signup-password-input-container input {
+  padding-right: 40px;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.login-eye {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.eye-show-password {
+  position: absolute;
+  top: 10%;
+  right: 10px;
+  cursor: pointer;
+}
+
+.eye-show-confirm-password {
+  position: absolute;
+  bottom: 25%;
+  right: 10px;
+  cursor: pointer;
+}
+
+.password-input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-btn {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.error-signup-password {
+  position: absolute;
+  top: 50px;
+  color: red;
+  font-weight: bold;
+}
+
+.error-signup-confirm-password {
+  top: 42px;
+  color: red;
+  font-weight: bold;
+}
+
+button {
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #3cb4a0;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Media queries for responsive design */
+
+/* Mobile */
+@media (max-width: 576px) {
+  .login-container {
+    width: 100%;
+    border-radius: 0;
+    margin-top: 40px;
+  }
+
+  .signup-container {
+    width: 100%;
+    border-radius: 0;
+    margin-top: 10rem;
+  }
+
+  .login-details input {
+    width: 90%;
+  }
+
+  .password-input-container input {
+    padding-right: 40px;
+    width: 80%;
+  }
+
+  .login-eye {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-40%);
+    cursor: pointer;
+  }
+  .password-input-container .login-btn:focus ~ span {
+    top: -30px;
+  }
+
+  .eye-show-password {
+    position: absolute;
+    top: 10%;
+    right: 20px;
+    cursor: pointer;
+  }
+
+  .eye-show-confirm-password {
+    position: absolute;
+    bottom: 20%;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+/* Tablet */
+@media (min-width: 577px) and (max-width: 992px) {
+  .login-container {
+    width: 450px;
+    margin-top: 20px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 993px) {
+  .login-container {
+    width: 550px;
+  }
+}

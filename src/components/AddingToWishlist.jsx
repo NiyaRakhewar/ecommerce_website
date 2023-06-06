@@ -15,15 +15,23 @@ export const AddingToWishlist = ({ product }) => {
   const navigate = useNavigate();
 
   const wishlistClickHandler = async () => {
+    token &&
+      toast.success("Successfully added to Wishlist", {
+        autoClose: 1000,
+        position: "bottom-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
     try {
       if (!token) {
         navigate("/login");
         return;
       }
-
-      toast("Added To Wishlist!", {
-        position: "bottom-right",
-      });
 
       const response = await fetch("/api/user/wishlist", {
         method: "POST",
@@ -45,27 +53,32 @@ export const AddingToWishlist = ({ product }) => {
   );
 
   return (
-    <>
+    <div className="food-content-wishlist">
       {wishlistProduct ? (
         <div>
-          <Link to={"/wishlist"}>
-            <button className="card-img-tag-btn productlist-card-img-tag-btn-container">
-              <FontAwesomeIcon
-                icon={faHeart}
-                size="xl"
-                style={{ color: "red" }}
-              />
-            </button>
-          </Link>
+          {/* <Link to={"/wishlist"}> */}
+          <button
+            className="food-content-wishlist"
+            onClick={() => navigate("/wishlist")}
+          >
+            <FontAwesomeIcon
+              className="cart-wishlist-btn"
+              icon={faHeart}
+              size="xl"
+              style={{ color: "red" }}
+            />
+          </button>
+          {/* </Link> */}
         </div>
       ) : (
         <div>
           <button
-            className="card-img-tag-btn productlist-card-img-tag-btn-container"
+            className="food-content-wishlist"
             onClick={wishlistClickHandler}
           >
             {" "}
             <FontAwesomeIcon
+              className="cart-wishlist-btn"
               icon={faHeart}
               size="xl"
               style={{ color: "white" }}
@@ -74,6 +87,6 @@ export const AddingToWishlist = ({ product }) => {
           </button>
         </div>
       )}
-    </>
+    </div>
   );
 };

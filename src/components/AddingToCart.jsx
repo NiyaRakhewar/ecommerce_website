@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProductListContext } from "../context/ProductListContext";
 import { Link, useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../context/AuthContext";
 import "./styles/Products.css";
@@ -15,16 +15,23 @@ export const AddingToCart = ({ product }) => {
   const navigate = useNavigate();
 
   const cartClickHandler = async () => {
+    token &&
+      toast.success("Successfully added to the cart", {
+        autoClose: 1000,
+        position: "bottom-right",
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+
     try {
       if (!token) {
         navigate("/login");
         return;
       }
-
-      toast("Added To Cart !!", {
-        position: "bottom-right",
-        // theme: "solid",
-      });
 
       const response = await fetch("/api/user/cart", {
         method: "POST",
@@ -64,7 +71,7 @@ export const AddingToCart = ({ product }) => {
             size="xl"
             style={{ color: "white" }}
           />
-          <ToastContainer />
+          {/* <ToastContainer /> */}
         </button>
       )}
     </div>

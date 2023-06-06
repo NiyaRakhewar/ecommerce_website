@@ -212,11 +212,11 @@ export const SignUp = () => {
       <div className="login-container">
         <div className="login-details">
           <h1>Sign Up</h1>
-          <label>Name</label>
+          <label>First Name</label>
           <input
             value={signUpData.firstName}
             type="text"
-            placeholder="Mr. Foodie"
+            placeholder="Enter First Name"
             onChange={(e) => handleInput(e, "firstName")}
             required
           />
@@ -228,7 +228,7 @@ export const SignUp = () => {
           <input
             value={signUpData.lastName}
             type="text"
-            placeholder="Mr. Foodie"
+            placeholder="Enter Last Name"
             onChange={(e) => handleInput(e, "lastName")}
             required
           />
@@ -238,7 +238,7 @@ export const SignUp = () => {
           <input
             value={signUpData.email}
             type="text"
-            placeholder="xyz@goResto@gmail.com"
+            placeholder="xyz@theFace.com"
             onChange={(e) => handleInput(e, "email")}
             required
           />
@@ -249,7 +249,7 @@ export const SignUp = () => {
             <div className="signup-password-input-container">
               <input
                 value={signUpData.password}
-                type={state.showPassword ? "password" : "text"}
+                type={!state.showPass ? "password" : "text"}
                 placeholder="Enter password"
                 onChange={(e) => handleInput(e, "password")}
                 required
@@ -257,10 +257,12 @@ export const SignUp = () => {
 
               <span
                 className="eye-show-password"
-                onClick={() => dispatch({ type: "ON_CLICKING_SHOW_PASSWORD" })}
+                onClick={() =>
+                  dispatch({ type: "SHOW_PASSWORD", payload: !state.showPass })
+                }
               >
                 <FontAwesomeIcon
-                  icon={state.showPassword ? faEyeSlash : faEye}
+                  icon={!state.showPass ? faEyeSlash : faEye}
                   style={{ color: "#000000" }}
                 />
               </span>
@@ -272,7 +274,7 @@ export const SignUp = () => {
               <label style={{ marginTop: "37px" }}>Confirm Password</label>
               <input
                 value={signUpData.confirmPassword}
-                type={state.showConfirmPassword ? "password" : "text"}
+                type={!state.showConfirmPass ? "password" : "text"}
                 placeholder="Confirm password"
                 id="confirm-password-input"
                 onChange={(e) => handleInput(e, "confirmPassword")}
@@ -281,11 +283,14 @@ export const SignUp = () => {
               <span
                 className="eye-show-confirm-password"
                 onClick={() =>
-                  dispatch({ type: "ON_CLICKING_SHOW_CONFIRM_PASSWORD" })
+                  dispatch({
+                    type: "SHOW_CONFIRM_PASSWORD",
+                    payload: !state.showConfirmPass,
+                  })
                 }
               >
                 <FontAwesomeIcon
-                  icon={state.showConfirmPassword ? faEyeSlash : faEye}
+                  icon={!state.showConfirmPass ? faEyeSlash : faEye}
                   style={{ color: "#000000" }}
                 />
               </span>
@@ -304,6 +309,7 @@ export const SignUp = () => {
             Already have an account? <Link to="/login">Sign In</Link>
           </div>
         </div>
+        http://localhost:3001/productpage
       </div>
     </div>
   );

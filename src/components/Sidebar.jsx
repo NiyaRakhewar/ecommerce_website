@@ -55,9 +55,9 @@ export const Sidebar = () => {
 
             <div className="main-checkbox">
               <h3> Category : </h3>
-              {state.category?.map((item) => (
-                <div className="checkbox">
-                  <li key={item._id}>
+              {state.category?.map((item, i) => (
+                <div key={i} className="checkbox">
+                  <li key={i}>
                     <label>{item.categoryName}</label>
                     <input
                       type="checkbox"

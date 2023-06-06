@@ -58,7 +58,7 @@ export const ProductContent = () => {
               Products : {filterRange.length}
             </h2>
             <div className="productlist-main-card-container">
-              {sortByPrice?.map((product) => {
+              {sortByPrice?.map((product, i) => {
                 const {
                   _id,
                   product_name,
@@ -69,10 +69,10 @@ export const ProductContent = () => {
                 } = product;
                 return (
                   <div
-                    key={_id}
+                    key={i}
                     className="card-container card-container-shadow productlist-card brd-rd-semi-sq"
                   >
-                    <div className="card-img-container cursor-pointer">
+                    <div key={i} className="card-img-container cursor-pointer">
                       <img
                         alt="img"
                         src={product_url}

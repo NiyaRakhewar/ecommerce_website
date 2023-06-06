@@ -4,6 +4,7 @@ import { useLocation, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../styles/Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ProductListContext } from "../../context/ProductListContext";
@@ -248,10 +249,10 @@ export const Login = () => {
         <div className="login-details">
           <h1>Sign In</h1>
 
-          <label>Email address</label>
+          <label>Email address : </label>
           <input
             type="email"
-            placeholder="xyz@goResto@gmail.com"
+            placeholder="xyz@theFace.com"
             value={userData.email}
             onChange={(e) =>
               setUserData({ ...userData, email: e.target.value })
@@ -260,11 +261,11 @@ export const Login = () => {
           />
           {/* {errors.email && <span className="error-email">{errors.email}</span>} */}
 
-          <label>Password</label>
+          <label>Password : </label>
           <div className="password-input-container">
             <input
-              type={state.showPassword ? "text" : "password"}
-              placeholder="xyz1234"
+              type={state.showPass ? "text" : "password"}
+              placeholder="xyz123"
               value={userData.password}
               onChange={(e) =>
                 setUserData({ ...userData, password: e.target.value })
@@ -276,11 +277,13 @@ export const Login = () => {
             )} */}
             <i
               className="login-eye"
-              onClick={() => dispatch({ type: "ON_CLICKING_SHOW_PASSWORD" })}
+              onClick={() =>
+                dispatch({ type: "SHOW_PASSWORD", payload: !state.showPass })
+              }
             >
               <FontAwesomeIcon
-                icon={state.showPassword ? faEyeSlash : faEye}
-                style={{ color: "#000000" }}
+                icon={!state.showPass ? faEyeSlash : faEye}
+                // style={{ color: "#000000" }}
               />
             </i>
           </div>
