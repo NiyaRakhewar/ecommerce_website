@@ -1,10 +1,10 @@
 import React, { createContext, useEffect, useReducer } from "react";
 
-import { initialState, reducer } from "../Reducer/reducer";
+import { initialState, Reducer } from "../reducerFolder/Reducer";
 
 export const ProductListContext = createContext();
 export const ProductListProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(Reducer, initialState);
 
   useEffect(() => {
     const getData = async () => {

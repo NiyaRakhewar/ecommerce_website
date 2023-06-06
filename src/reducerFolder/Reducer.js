@@ -124,7 +124,7 @@ export const initialState = {
     },
   ],
 };
-export const reducer = (state, action) => {
+export const Reducer = (state, action) => {
   switch (action.type) {
     case "All_PRODUCTS":
       return { ...state, product: action.payload };

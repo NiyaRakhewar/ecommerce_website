@@ -1,11 +1,11 @@
 import { createContext, useReducer } from "react";
 
-import { reducer, initialState } from "../Reducer/reducer";
+import { Reducer, initialState } from "../reducerFolder/Reducer";
 
 export const HomeContext = createContext();
 
 export const HomeProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(Reducer, initialState);
 
   return (
     <>
