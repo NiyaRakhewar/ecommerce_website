@@ -1,0 +1,76 @@
+.home-img {
+  object-fit: fill;
+  min-height: 12.5rem;
+  /* margin-top: 100px; */
+  margin-left: 1px;
+  /* border: 1rem solid blue; */
+  width: 100%;
+}
+
+/* CATEGORY */
+
+.home_all_category {
+  padding: 1.5rem 0.5rem;
+  display: flex;
+  justify-content: center;
+  grid-gap: 1rem;
+  gap: 1rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  flex-wrap: wrap;
+  align-items: center;
+  /* border: 1px solid black; */
+  height: 250px;
+  width: 70%;
+}
+
+.category div {
+  border-radius: 0.5rem;
+  box-shadow: 0px 2px 3px 4px rgba(0, 0, 0, 0.3);
+  background-color: rgb(26, 142, 160);
+  color: white;
+  width: 300px;
+  height: 250px;
+}
+
+.category div:hover {
+  cursor: pointer;
+  padding: 3px 2px;
+  /* width: 305px; */
+  /* height: 255px; */
+}
+
+.skin-care,
+.hair-care,
+.body-care {
+  /* border: 1px solid black; */
+  border-radius: 0.5rem;
+  height: 200px;
+  width: 300px;
+}
+.text {
+  text-decoration: none;
+}
+.category-h3 {
+  margin: 0px;
+  color: white;
+  text-align: center;
+}
+
+@media (max-width: 750px) {
+  .home_all_category,
+  .category {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    grid-gap: 1rem;
+    gap: 1rem;
+    /* border: 1px solid black; */
+  }
+}

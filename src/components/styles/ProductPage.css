@@ -1,0 +1,14 @@
+.main-product-container {
+  margin-left: 10px;
+}
+
+.product-aside-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.productlist-content {
+  display: flex;
+  flex-direction: row;
+  width: 98%;
+}

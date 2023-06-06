@@ -1,37 +1,72 @@
-import React, { useContext } from 'react'
-import { FaRegHeart, FaShoppingCart} from "react-icons/fa";
-import { ProductListContext } from '../context/ProductListContext';
-import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'
+import React, { useContext } from "react";
+import { ProductListContext } from "../context/ProductListContext";
+import { Link, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "../context/AuthContext";
+import "./styles/Products.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+export const AddingToCart = ({ product }) => {
+  const { state, dispatch } = useContext(ProductListContext);
 
-export const AddingToCart = ({product}) => {
+  const { token } = useContext(AuthContext);
 
-    const { state, dispatch } = useContext(ProductListContext);
+  const navigate = useNavigate();
 
-    const cartClickHandler = async () =>{
+  const cartClickHandler = async () => {
+    try {
+      if (!token) {
+        navigate("/login");
+        return;
+      }
 
-      toast("Added To Cart !!")
+      toast("Added To Cart !!", {
+        position: "bottom-right",
+        // theme: "solid",
+      });
 
-        const response = await fetch("/api/user/cart", {
-            method: "POST",
-            headers: {
-              authorization: localStorage.getItem("token"),
-            },
-            body: JSON.stringify({product}),
-          })
-        const data = await response.json()
+      const response = await fetch("/api/user/cart", {
+        method: "POST",
+        headers: {
+          authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ product }),
+      });
+      const data = await response.json();
 
-        dispatch({type: "ADD-TO-CART", payload: data.cart})
-
+      dispatch({ type: "ADD-TO-CART", payload: data.cart });
+    } catch (err) {
+      // toast.error("Please login to add item to cart");
     }
+  };
 
-    const cardProduct = state.cart.some((item)=> item._id === product._id)
-
+  const cardProduct = state.cart.some((item) => item._id === product._id);
 
   return (
-    <div>
-        { cardProduct ? <Link to={"/cart"}><button style={{backgroundColor: "blue"}}>Go to Cart <FaShoppingCart /></button></Link>:<button onClick={cartClickHandler}>Add to Cart <FaShoppingCart />  <ToastContainer /></button>}
+    <div className="card-footer-elements">
+      {cardProduct && token ? (
+        <Link to={"/cart"}>
+          <button style={{ backgroundColor: " rgb(54, 150, 81)" }}>
+            Go To Cart{" "}
+            <FontAwesomeIcon
+              icon={faCartShopping}
+              size="xl"
+              style={{ color: "white" }}
+            />
+          </button>
+        </Link>
+      ) : (
+        <button onClick={cartClickHandler}>
+          Add To Cart{" "}
+          <FontAwesomeIcon
+            icon={faCartShopping}
+            size="xl"
+            style={{ color: "white" }}
+          />
+          <ToastContainer />
+        </button>
+      )}
     </div>
-  )
-}
+  );
+};

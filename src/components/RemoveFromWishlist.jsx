@@ -1,9 +1,12 @@
 import React, { useContext } from 'react'
 import { ProductListContext } from '../context/ProductListContext'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 export const RemoveFromWishlist = ({product}) => {
 
-    const { state, dispatch } = useContext(ProductListContext) 
+  toast("Removed From Wishlist !!")
+
+    const { dispatch } = useContext(ProductListContext) 
 
     const removeClickHandler = async () =>{
 
@@ -24,7 +27,7 @@ export const RemoveFromWishlist = ({product}) => {
     }  
   return (
     <div>
-        <button onClick={removeClickHandler}>Remove From Wishlist</button>
+        <button onClick={removeClickHandler}>Remove From Wishlist<ToastContainer /></button>
     </div>
   )
 }

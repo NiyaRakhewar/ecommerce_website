@@ -1,11 +1,15 @@
 import React, { useContext } from 'react'
 import { ProductListContext } from '../context/ProductListContext'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 export const RemoveFromCart = ({product}) => {
 
-    const { state, dispatch } = useContext(ProductListContext) 
+    const { dispatch } = useContext(ProductListContext) 
 
     const removeClickHandler = async () =>{
+
+      toast("Removed Item From Cart !!")
 
     const response = await fetch(`/api/user/cart/${product._id}`,{
         method: "DELETE",
@@ -24,7 +28,7 @@ export const RemoveFromCart = ({product}) => {
     }  
   return (
     <div>
-        <button onClick={removeClickHandler}>Remove From Cart</button>
+        <button onClick={removeClickHandler}>Remove From Cart<ToastContainer /></button>
     </div>
   )
 }
