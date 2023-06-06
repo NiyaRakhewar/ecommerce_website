@@ -147,34 +147,34 @@ export const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    const validationErrors = {};
+    // const validationErrors = {};
 
-    if (!signUpData.firstName) {
-      validationErrors.firstName = "First name is required";
-    }
+    // if (!signUpData.firstName) {
+    //   validationErrors.firstName = "First name is required";
+    // }
 
-    if (!signUpData.lastName) {
-      validationErrors.lastName = "Last name is required";
-    }
+    // if (!signUpData.lastName) {
+    //   validationErrors.lastName = "Last name is required";
+    // }
 
-    if (!signUpData.email) {
-      validationErrors.email = "Email is required";
-    }
+    // if (!signUpData.email) {
+    //   validationErrors.email = "Email is required";
+    // }
 
-    if (!signUpData.password) {
-      validationErrors.password = "Password is required";
-    }
+    // if (!signUpData.password) {
+    //   validationErrors.password = "Password is required";
+    // }
 
-    if (!signUpData.confirmPassword) {
-      validationErrors.confirmPassword = "Confirm password is required";
-    } else if (signUpData.password !== signUpData.confirmPassword) {
-      validationErrors.confirmPassword = "Passwords don't match";
-    }
+    // if (!signUpData.confirmPassword) {
+    //   validationErrors.confirmPassword = "Confirm password is required";
+    // } else if (signUpData.password !== signUpData.confirmPassword) {
+    //   validationErrors.confirmPassword = "Passwords don't match";
+    // }
 
-    if (Object.keys(validationErrors).length > 0) {
-      // setErrors(validationErrors);
-      return;
-    }
+    // if (Object.keys(validationErrors).length > 0) {
+    //   // setErrors(validationErrors);
+    //   return;
+    // }
 
     if (signUpData.password === signUpData.confirmPassword) {
       try {
@@ -309,7 +309,6 @@ export const SignUp = () => {
             Already have an account? <Link to="/login">Sign In</Link>
           </div>
         </div>
-        http://localhost:3001/productpage
       </div>
     </div>
   );
