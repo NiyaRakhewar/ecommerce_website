@@ -17,6 +17,7 @@ export const initialState = {
   selectedAddressId: null,
   totalBill: 0,
   showPass: false,
+  showConfirmPass: false,
 
   addressList: [
     {
@@ -267,6 +268,12 @@ export const reducer = (state, action) => {
 
     case "SHOW_PASSWORD":
       return { ...state, showPass: action.payload };
+
+    case "SHOW_CONFIRM_PASSWORD":
+      return { ...state, showConfirmPass: action.payload };
+
+    // case "CART_EMPTY":
+    //   return { ...state, cart: [] };
 
     default:
       return state;
