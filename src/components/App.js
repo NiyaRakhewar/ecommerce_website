@@ -10,7 +10,6 @@ import { SignUp } from "./pages/SignUp";
 import { RequireAuth } from "./RequireAuth";
 import { Profile } from "./pages/Profile/Profile";
 import { Header } from "../components/Header";
-
 import { ProductInfoPage } from "./pages/ProductInfoPage";
 import { Checkout } from "./pages/Checkout";
 

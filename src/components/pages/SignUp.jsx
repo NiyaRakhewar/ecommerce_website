@@ -4,129 +4,7 @@ import { ProductListContext } from "../../context/ProductListContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { AuthContext } from "../../context/AuthContext";
-// export const SignUp = () => {
-//   const { state, dispatch } = useContext(ProductListContext);
-
-//   const { setToken, signUpData, setSignUpData, profile, setProfile } =
-//     useContext(AuthContext);
-
-//   const navigate = useNavigate();
-
-//   const inputHandler = (e, inputValue) => {
-//     setSignUpData((prevData) => ({
-//       ...prevData,
-//       [inputValue]: e.target.value,
-//     }));
-//   };
-
-//   const signUpClickHandler = async () => {
-//     if (signUpData.password === signUpData.confirmPassword) {
-//       const response = await fetch("/api/auth/signup", {
-//         method: "POST",
-//         body: JSON.stringify({
-//           firstName: signUpData.firstName,
-//           lastName: signUpData.lastName,
-//           email: signUpData.email,
-//           password: signUpData.password,
-//         }),
-//       });
-//       const data = await response.json();
-
-//       localStorage.setItem("token", data.encodedToken);
-//       //setting token in local storage
-//       console.log("signup", data);
-//       localStorage.setItem("user", JSON.stringify(data.createdUser));
-//       setToken(data.encodedToken);
-//       //for condition or authentication
-
-//       navigate("/");
-//       setProfile({
-//         ...profile,
-//         firstName: data.createdUser.firstName,
-//         lastName: data.createdUser.lastName,
-//         email: data.createdUser.email,
-//       });
-//     }
-//   };
-//   return (
-//     <div>
-//       <div style={{ marginTop: "20px" }}>
-//         <div className="form">
-//           <h1>Sign Up</h1>
-//           <div>
-//             <label>
-//               {" "}
-//               First Name
-//               <input
-//                 value={signUpData.firstName}
-//                 type="text"
-//                 placeholder="Ms./Mr.TheFace"
-//                 onChange={(e) => inputHandler(e, "firstName")}
-//               />
-//             </label>
-//             <label>
-//               {" "}
-//               Last Name
-//               <input
-//                 value={signUpData.lastName}
-//                 type="text"
-//                 placeholder="Ms./Mr.TheFace"
-//                 onChange={(e) => inputHandler(e, "lastName")}
-//               />
-//             </label>
-//           </div>
-//           <label>
-//             {" "}
-//             Email address
-//             <input
-//               value={signUpData.email}
-//               type="text"
-//               placeholder="xyz@TheFace.com"
-//               onChange={(e) => inputHandler(e, "email")}
-//             />
-//           </label>
-//           <label>
-//             {" "}
-//             Password
-//             <input
-//               value={signUpData.password}
-//               type={state.showPass ? "text" : "password"}
-//               placeholder="xyz1234"
-//               onChange={(e) => inputHandler(e, "password")}
-//             />
-//             <div
-//               onClick={() =>
-//                 dispatch({ type: "SHOW_PASSWORD", payload: !state.showPass })
-//               }
-//             >
-//               {" "}
-//               <FontAwesomeIcon icon={state.showPass ? faEye : faEyeSlash} />
-//             </div>
-//           </label>
-//           <label>
-//             {" "}
-//             Confirm Password
-//             <input
-//               value={signUpData.confirmPassword}
-//               type="text"
-//               placeholder="xyz1234"
-//               onChange={(e) => inputHandler(e, "confirmPassword")}
-//             />
-//           </label>
-
-//           <Link to="/login">
-//             {" "}
-//             <button onClick={signUpClickHandler}> Create New Account </button>
-//           </Link>
-
-//           <p>
-//             Already have an account? <Link to="/login">Sign In</Link>
-//           </p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+import { ErrorContext } from "../../context/ErrorContext";
 
 export const SignUp = () => {
   const { state, dispatch } = useContext(ProductListContext);
@@ -134,7 +12,7 @@ export const SignUp = () => {
   const { profile, setProfile, setToken, signUpData, setSignUpData } =
     useContext(AuthContext);
 
-  // const { errors, setErrors } = useContext(ErrorContext);
+  const { errors, setErrors } = useContext(ErrorContext);
 
   const navigate = useNavigate();
 
@@ -147,34 +25,34 @@ export const SignUp = () => {
   };
 
   const handleSignUp = async () => {
-    // const validationErrors = {};
+    const validationErrors = {};
 
-    // if (!signUpData.firstName) {
-    //   validationErrors.firstName = "First name is required";
-    // }
+    if (!signUpData.firstName) {
+      validationErrors.firstName = "First Name Required !!";
+    }
 
-    // if (!signUpData.lastName) {
-    //   validationErrors.lastName = "Last name is required";
-    // }
+    if (!signUpData.lastName) {
+      validationErrors.lastName = "Last Name Required !!";
+    }
 
-    // if (!signUpData.email) {
-    //   validationErrors.email = "Email is required";
-    // }
+    if (!signUpData.email) {
+      validationErrors.email = "Email Required !!";
+    }
 
-    // if (!signUpData.password) {
-    //   validationErrors.password = "Password is required";
-    // }
+    if (!signUpData.password) {
+      validationErrors.password = "Password Required !!";
+    }
 
-    // if (!signUpData.confirmPassword) {
-    //   validationErrors.confirmPassword = "Confirm password is required";
-    // } else if (signUpData.password !== signUpData.confirmPassword) {
-    //   validationErrors.confirmPassword = "Passwords don't match";
-    // }
+    if (!signUpData.confirmPassword) {
+      validationErrors.confirmPassword = "Confirm password Required !!";
+    } else if (signUpData.password !== signUpData.confirmPassword) {
+      validationErrors.confirmPassword = "Password Mismatch !!";
+    }
 
-    // if (Object.keys(validationErrors).length > 0) {
-    //   // setErrors(validationErrors);
-    //   return;
-    // }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     if (signUpData.password === signUpData.confirmPassword) {
       try {
@@ -220,9 +98,11 @@ export const SignUp = () => {
             onChange={(e) => handleInput(e, "firstName")}
             required
           />
-          {/* {errors.firstName && (
-            <span className="error">{errors.firstName}</span>
-          )} */}
+          {errors.firstName && (
+            <span className="error" style={{ color: "red" }}>
+              *{errors.firstName}
+            </span>
+          )}
 
           <label htmlFor="">Last Name</label>
           <input
@@ -232,7 +112,11 @@ export const SignUp = () => {
             onChange={(e) => handleInput(e, "lastName")}
             required
           />
-          {/* {errors.lastName && <span className="error">{errors.lastName}</span>} */}
+          {errors.lastName && (
+            <span className="error" style={{ color: "red" }}>
+              *{errors.lastName}
+            </span>
+          )}
 
           <label>Email address</label>
           <input
@@ -242,7 +126,11 @@ export const SignUp = () => {
             onChange={(e) => handleInput(e, "email")}
             required
           />
-          {/* {errors.email && <span className="error">{errors.email}</span>} */}
+          {errors.email && (
+            <span className="error" style={{ color: "red" }}>
+              *{errors.email}
+            </span>
+          )}
 
           <div className="login-password">
             <label>Password</label>
@@ -267,9 +155,14 @@ export const SignUp = () => {
                 />
               </span>
 
-              {/* {errors.password && (
-                <span className="error-signup-password">{errors.password}</span>
-              )} */}
+              {errors.password && (
+                <span
+                  className="error-signup-password"
+                  style={{ color: "red" }}
+                >
+                  *{errors.password}
+                </span>
+              )}
 
               <label style={{ marginTop: "37px" }}>Confirm Password</label>
               <input
@@ -294,11 +187,14 @@ export const SignUp = () => {
                   style={{ color: "#000000" }}
                 />
               </span>
-              {/* {errors.confirmPassword && (
-                <span className="error-signup-confirm-password">
-                  {errors.confirmPassword}
+              {errors.confirmPassword && (
+                <span
+                  className="error-signup-confirm-password"
+                  style={{ color: "red" }}
+                >
+                  *{errors.confirmPassword}
                 </span>
-              )} */}
+              )}
             </div>
           </div>
 

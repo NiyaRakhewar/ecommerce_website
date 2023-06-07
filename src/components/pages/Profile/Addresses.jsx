@@ -8,10 +8,19 @@ import "../../styles/Addresses.css";
 export const Addresses = () => {
   const { state, dispatch } = useContext(ProductListContext);
 
+  console.log("start", state.editAddressId);
   const handleDeleteAddress = (id) => {
     dispatch({
       type: "DELETE_ADDRESS_BUTTON",
       payload: id,
+    });
+  };
+
+  const handleEditAddress = (details) => {
+    // console.log("edit clicked", details.id);
+    dispatch({
+      type: "EDIT_ADDRESS_CLICKED",
+      payload: details.id,
     });
   };
 
@@ -51,7 +60,7 @@ export const Addresses = () => {
           {state.addressList.map((details, i) => {
             const { id, name, mobile, city, pincode, address, state } = details;
 
-            const isEditing = state.editAddressId === id;
+            const isEditing = state.editAddressId === details.id;
 
             return (
               <div
@@ -68,14 +77,7 @@ export const Addresses = () => {
                     <p>{pincode}</p>
                     <p>{state}</p>
                     <p>Address: {address}</p>
-                    <button
-                      onClick={() =>
-                        dispatch({
-                          type: "EDIT_ADDRESS_CLICKED",
-                          payload: id,
-                        })
-                      }
-                    >
+                    <button onClick={() => handleEditAddress(details)}>
                       Edit
                     </button>
                     <button onClick={() => handleDeleteAddress(id)}>

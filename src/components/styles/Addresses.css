@@ -41,10 +41,10 @@
   margin: 0;
 }
 
-.list-stacked-item,
+/* .list-stacked-item,
 .address-list-stacked-item {
   margin-left: -300px;
-}
+} */
 
 .list-stacked-item button {
   padding: 10px 20px;

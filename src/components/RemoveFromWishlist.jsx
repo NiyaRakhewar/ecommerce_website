@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 export const RemoveFromWishlist = ({ product }) => {
-  toast("Removed From Wishlist !!");
+  // toast("Removed From Wishlist !!");
 
   const { dispatch } = useContext(ProductListContext);
 

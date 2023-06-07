@@ -8,129 +8,7 @@ import "../styles/Login.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { ProductListContext } from "../../context/ProductListContext";
-// export const Login = () => {
-//   const { setToken, profile, setProfile } = useContext(AuthContext);
-
-//   const navigate = useNavigate();
-//   const location = useLocation();
-
-//   console.log("location in login", location);
-
-//   const [loginData, setLoginData] = useState({
-//     email: "",
-//     password: "",
-//   });
-
-//   // const inputHandler = (e, inputValue) => {
-//   //   setLoginData((data) => ({
-//   //     ...data,
-//   //     [inputValue]: e.target.value,
-//   //   }));
-//   // };
-
-//   const handleLoginGuest = async () => {
-//     toast.success("Successfully logged in as Guest", {
-//       autoClose: 1000,
-//       position: "bottom-right",
-//       hideProgressBar: false,
-//       closeOnClick: true,
-//       pauseOnHover: true,
-//       draggable: true,
-//       progress: undefined,
-//       theme: "colored",
-//     });
-
-//     const credentials = {
-//       email: "niharikarakhewar@gmail.com",
-//       password: "Niya@theFace",
-//     };
-
-//     const response = await fetch("/api/auth/login", {
-//       method: "POST",
-//       body: JSON.stringify(credentials),
-//     });
-
-//     const data = await response?.json();
-
-//     console.log("in login data foundUser", data);
-
-//     if (data.encodedToken) {
-//       localStorage.setItem("token", data.encodedToken);
-//       localStorage.setItem("user", JSON.stringify(data.foundUser));
-//       navigate(location?.state?.from?.pathname || "/");
-//       console.log("nav", navigate(location));
-//       setToken(data.encodedToken);
-//       setProfile({
-//         ...profile,
-//         firstName: data.foundUser.firstName,
-//         lastName: data.foundUser.lastName,
-//         email: data.foundUser.email,
-//       });
-//     }
-//   };
-
-//   const handleLogin = async () => {
-//     const response = await fetch("/api/auth/login", {
-//       method: "POST",
-//       body: JSON.stringify({
-//         email: loginData.email,
-//         password: loginData.password,
-//       }),
-//     });
-//     const data = await response.json();
-
-//     if (data.encodedToken) {
-//       localStorage.setItem("token", data.encodedToken);
-//       // localStorage.setItem("user", JSON.stringify(data.foundUser));
-//       navigate(location?.state?.from?.pathname || "/");
-
-//       setToken(data.encodedToken);
-
-//       // setProfile({
-//       //   ...profile,
-//       //   firstName: data.foundUser.firstName,
-//       //   lastName: data.foundUser.lastName,
-//       //   email: data.foundUser.email,
-//       // });
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <div className="form">
-//         <h1>Sign In</h1>
-
-//         <label>Email address</label>
-//         <input
-//           type="email"
-//           placeholder="xyz@TheFace.com"
-//           value={loginData.email}
-//           onChange={(e) =>
-//             setLoginData({ ...loginData, email: e.target.value })
-//           }
-//         />
-
-//         <label>Password</label>
-//         <input
-//           type="password"
-//           placeholder="xyz123"
-//           value={loginData.password}
-//           onChange={(e) =>
-//             setLoginData({ ...loginData, password: e.target.value })
-//           }
-//         />
-//         <div>
-//           <button onClick={handleLogin}>Login</button>
-//           <button onClick={handleLoginGuest}>Login as a Guest</button>
-//         </div>
-
-//         <div>
-//           Don't have an account? <Link to="/signup">Sign Up</Link>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
+import { ErrorContext } from "../../context/ErrorContext";
 
 export const Login = () => {
   const [userData, setUserData] = useState({
@@ -138,7 +16,7 @@ export const Login = () => {
     password: "",
   });
 
-  // const { errors, setErrors } = useContext(ErrorContext);
+  const { errors, setErrors } = useContext(ErrorContext);
 
   const { state, dispatch } = useContext(ProductListContext);
   const { setToken, profile, setProfile } = useContext(AuthContext);
@@ -183,20 +61,20 @@ export const Login = () => {
   };
 
   const handleLogin = async () => {
-    // const validationErrors = {};
+    const validationErrors = {};
 
-    // if (!userData.email) {
-    //   validationErrors.email = "Email is required";
-    // }
+    if (!userData.email) {
+      validationErrors.email = "Email Required !!";
+    }
 
-    // if (!userData.password) {
-    //   validationErrors.password = "Password is required";
-    // }
+    if (!userData.password) {
+      validationErrors.password = "Password Required !!";
+    }
 
-    // if (Object.keys(validationErrors).length > 0) {
-    //   // setErrors(validationErrors);
-    //   return;
-    // }
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
 
     const response = await fetch("/api/auth/login", {
       method: "POST",
@@ -259,7 +137,11 @@ export const Login = () => {
             }
             required
           />
-          {/* {errors.email && <span className="error-email">{errors.email}</span>} */}
+          {errors.email && (
+            <span className="error-email" style={{ color: "red" }}>
+              *{errors.email}
+            </span>
+          )}
 
           <label>Password : </label>
           <div className="password-input-container">
@@ -272,9 +154,11 @@ export const Login = () => {
               }
               required
             />
-            {/* {errors.password && (
-              <span className="error-password">{errors.password}</span>
-            )} */}
+            {errors.password && (
+              <span className="error-password" style={{ color: "red" }}>
+                *{errors.password}
+              </span>
+            )}
             <i
               className="login-eye"
               onClick={() =>

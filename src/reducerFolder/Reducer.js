@@ -11,7 +11,7 @@ export const initialState = {
   searchValue: "",
   cart: [],
   wishlist: [],
-  isEdit: false,
+  // isEdit: false,
   isAdded: false,
   editAddressId: null,
   selectedAddressId: null,
@@ -235,7 +235,7 @@ export const Reducer = (state, action) => {
     //     ...state,
     //     addressList: state.addressList.map((item) => {
     //       return item.id === action.payload.address.id
-    //         ? action.payload.address
+    // ? action.payload.address
     //         : item;
     //     }),
     //   };
@@ -272,8 +272,8 @@ export const Reducer = (state, action) => {
     case "SHOW_CONFIRM_PASSWORD":
       return { ...state, showConfirmPass: action.payload };
 
-    // case "CART_EMPTY":
-    //   return { ...state, cart: [] };
+    case "CART_EMPTY":
+      return { ...state, cart: [] };
 
     default:
       return state;

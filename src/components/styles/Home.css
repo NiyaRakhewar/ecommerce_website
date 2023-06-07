@@ -74,3 +74,27 @@
     /* border: 1px solid black; */
   }
 }
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  /* background-color: rgb(31, 108, 109); */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); */
+  margin-bottom: -10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.footer-links {
+  font-size: 1.4rem;
+  display: flex;
+  /* gap: 2rem; */
+}
+
+.footer-links a {
+  margin-right: 2rem;
+  color: rgb(31, 108, 109);
+}
