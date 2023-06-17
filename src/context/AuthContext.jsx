@@ -5,7 +5,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const encodedToken = localStorage.getItem("token");
   const user = JSON.parse(localStorage.getItem("user")) || "";
-  console.log(user, "from local");
+  // console.log(user, "from local");
   const [token, setToken] = useState(encodedToken || "");
   const [signUpData, setSignUpData] = useState({
     firstName: "",
