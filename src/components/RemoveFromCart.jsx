@@ -34,7 +34,9 @@ export const RemoveFromCart = ({ product }) => {
   };
   return (
     <div>
-      <button onClick={removeClickHandler}>Remove From Cart</button>
+      <button className="remove-cart" onClick={removeClickHandler}>
+        Remove From Cart
+      </button>
     </div>
   );
 };

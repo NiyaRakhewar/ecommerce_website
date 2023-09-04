@@ -2,35 +2,48 @@ import React, { useContext } from "react";
 import { ProductListContext } from "../../context/ProductListContext";
 import "../styles/Checkout.css";
 import { useNavigate } from "react-router";
+import { handleCheckout } from "../HandleCheckout";
+import { OrderContext } from "../../context/OrderContext";
+import { AuthContext } from "../../context/AuthContext";
+import { toast } from "react-toastify";
 export const Checkout = () => {
   const { state, dispatch } = useContext(ProductListContext);
+  const { setOrder } = useContext(OrderContext);
+  const { token } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
   const totalItems = state.cart.reduce((acc, curr) => acc + curr.qty, 0);
 
-  const orderHandler = () => {
-    dispatch({ type: "CART_EMPTY" });
-    navigate("/profile/ordersummary");
+  const orderHandler = async () => {
+    const selectedAddress = state?.addressList.find(
+      (address) => address.id === state.selectedAddressId
+    );
+
+    if (selectedAddress) {
+      try {
+        const orderData = await handleCheckout(
+          selectedAddress,
+          state.totalBill,
+          state.cart,
+          token
+        );
+        setOrder(orderData);
+        dispatch({ type: "CART_EMPTY" });
+        navigate("/profile/ordersummary");
+      } catch (error) {
+        console.error("Error during checkout:", error);
+        toast.error("An error occurred during checkout.");
+      }
+    } else {
+      toast.error("Please select an address before placing the order.");
+    }
   };
 
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column" }}
-      className="topToBody checkout-outer-container"
-    >
+    <div className="topToBody checkout-outer-container">
       <h2 style={{ textAlign: "left" }}>Address Details : </h2>
-      <div
-        // style={{
-        //   display: "flex",
-        //   flexDirection: "row",
-        //   alignContent: "space-between",
-        //   justifyContent: "space-between",
-        //   marginleft: "400px",
-        //   gap: "2rem",
-        // }}
-        className="checkout-address-container"
-      >
+      <div className="checkout-address-container">
         <div className="address-list">
           {state.addressList.map((item, i) => (
             <div
@@ -110,7 +123,9 @@ export const Checkout = () => {
             </ul>
 
             <div className="text-center">
-              <button onClick={orderHandler}>PLACE ORDER</button>
+              <button className="place-order-btn" onClick={orderHandler}>
+                PLACE ORDER
+              </button>
             </div>
           </div>
         </div>

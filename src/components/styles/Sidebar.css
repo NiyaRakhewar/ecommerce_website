@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #c2dedc;
-  border: 1px solid #c2dedc;
+  background-color: #f3e1f7;
   box-shadow: 1px 2px 2px 3px rgba(0.1, 0, 0, 0.2);
   border-radius: 0.3rem;
   padding: 0 15px;
-  margin-top: 15px;
+  margin-top: 20px;
   margin-left: 15px;
-  max-width: 300px;
+  max-width: 250px;
   max-height: 900px;
 }
 
@@ -26,15 +25,16 @@
   border-radius: 0.4rem;
   margin: 13px;
   padding: 10px 15px;
-  background-color: rgb(54, 148, 150);
+  background-color: #800080;
   color: white;
   font-size: large;
   font-weight: 600;
+  border: none;
 }
 
 .form button:hover {
   padding: 10px 17px;
-  background-color: rgb(31, 108, 109);
+  background-color: #aa32aa;
 }
 
 .range-price {
@@ -43,6 +43,7 @@
   justify-content: space-between;
   font-size: large;
   font-weight: 600;
+  color: black;
 }
 
 .range-price-slider {
@@ -73,7 +74,7 @@
 
 .checkbox label {
   margin-left: 90px;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 5px;
   font-size: larger;
 }
@@ -92,13 +93,13 @@
   padding: 10px;
 }
 .rating input {
-  margin-left: -110px;
+  margin-left: -140px;
   margin-top: -17px;
   /* margin-bottom: -10px; */
 }
 
 .rating label {
-  margin-left: 120px;
+  margin-left: 80px;
   font-size: large;
 }
 

@@ -164,12 +164,12 @@ export const SignUp = () => {
                 </span>
               )}
 
-              <label style={{ marginTop: "37px" }}>Confirm Password</label>
+              <label>Confirm Password</label>
               <input
                 value={signUpData.confirmPassword}
                 type={!state.showConfirmPass ? "password" : "text"}
                 placeholder="Confirm password"
-                id="confirm-password-input"
+                className="signup-confirm-password-input"
                 onChange={(e) => handleInput(e, "confirmPassword")}
                 required
               />
@@ -201,7 +201,7 @@ export const SignUp = () => {
           <div className="login-btn">
             <button onClick={handleSignUp}>Create New Account</button>
           </div>
-          <div>
+          <div className="signup-text-container">
             Already have an account? <Link to="/login">Sign In</Link>
           </div>
         </div>

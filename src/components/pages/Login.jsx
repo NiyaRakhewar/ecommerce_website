@@ -130,6 +130,7 @@ export const Login = () => {
           <label>Email address : </label>
           <input
             type="email"
+            className="login-email-container"
             placeholder="xyz@theFace.com"
             value={userData.email}
             onChange={(e) =>
@@ -160,7 +161,7 @@ export const Login = () => {
               </span>
             )}
             <i
-              className="login-eye"
+              className="login-eye-container"
               onClick={() =>
                 dispatch({ type: "SHOW_PASSWORD", payload: !state.showPass })
               }
@@ -176,9 +177,9 @@ export const Login = () => {
             <button onClick={handleLogin}>Login</button>
             <button onClick={handleLoginGuest}>Be My Guest</button>
           </div>
-          <div>
+          <p>
             Don't have an account? <Link to="/signup">Sign Up</Link>
-          </div>
+          </p>
         </div>
       </div>
     </div>

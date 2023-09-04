@@ -10,14 +10,15 @@
   align-items: center;
   grid-gap: 1.25rem;
   gap: 1.25rem;
+  padding-bottom: 15px;
 }
 
 .controller-container {
   display: flex;
   align-items: center;
   gap: 2rem;
-  width: 90%;
-  border: 2px solid #499ac6;
+  width: 85%;
+  border: 2px solid #8531b0;
   padding: 0.75rem;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -27,26 +28,42 @@
 }
 
 .add-address-btn {
+  width: 10%;
   padding: 0.5rem 0.75rem;
   font-size: 1rem;
   font-weight: 600;
-  background-color: #366268;
+  background-color: #8531b0;
   color: white;
-  border: 0.125rem solid #12434a;
+  border: none;
+  box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.3);
+  border-radius: 0.4rem;
   margin: 0;
 }
 
 .add-address-label {
   font-size: 1.2rem;
+
   margin: 0;
 }
 
-/* .list-stacked-item,
+.list-stacked-item,
 .address-list-stacked-item {
   margin-left: -300px;
-} */
+}
 
 .list-stacked-item button {
   padding: 10px 20px;
   margin-right: 20px;
+  background-color: #8531b0;
+  border: none;
+  border-radius: 0.4rem;
+  color: white;
+  box-shadow: 1px 2px 1px 0px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  font-size: medium;
+}
+
+.list-stacked-item button:hover {
+  background-color: #6e1cb0;
+  transform: scale(1.04);
 }

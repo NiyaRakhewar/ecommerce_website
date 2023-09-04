@@ -1,9 +1,10 @@
 import React from "react";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import "./styles/Footer.css";
 
 export const Footer = () => {
   return (
-    <footer className="footer">
+    <div className="footer">
       <div className="footer-links">
         <a href="https://twitter.com/NRakhewar">
           <FaTwitter className="footer-icon" />
@@ -16,6 +17,6 @@ export const Footer = () => {
         </a>
       </div>
       <div className="footer-text">© No Copyright, Feel free to replicate.</div>
-    </footer>
+    </div>
   );
 };

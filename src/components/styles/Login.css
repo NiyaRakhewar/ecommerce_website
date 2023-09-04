@@ -1,12 +1,12 @@
 /* Common styles */
 .login-page {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+
   /* background: #59c173; */
-  background: -webkit-linear-gradient(to right, #4aaa9b, #97f0e9);
-  background: linear-gradient(to right, #7cb1b1, #3e8595);
 }
 
 .login-password {
@@ -18,8 +18,9 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
   border-radius: 10px;
   width: 26rem;
-  background-color: white;
+  background: linear-gradient(to right, #e8d3f1, #ffc0cb, #e8d3f1);
   box-sizing: border-box;
+  padding: 0 5%;
 }
 .signup-container {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
@@ -40,16 +41,29 @@
   text-align: center;
 }
 
-label {
+.login-page label {
   display: block;
   font-size: 18px;
 }
 
 .login-details input {
+  width: 90%;
   padding: 10px;
-  font-size: 1rem;
-  display: block;
+  margin: 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+
+  /* padding: 0; */
+  /* font-size: 1rem; */
+  /* display: block; */
   /* border: 0.1px solid gray; */
+}
+
+.login-details input:hover {
+  transform: scale(1.02);
+}
+
+input:focus {
+  outline: none;
 }
 
 .password-input-container {
@@ -59,9 +73,10 @@ label {
 
 .password-input-container input {
   padding-right: 40px;
-  width: 90%;
+  width: 80%;
 }
-#confirm-password-input {
+
+.signup-confirm-password-input {
   margin-top: 0.5rem;
 }
 
@@ -72,9 +87,20 @@ label {
 }
 
 .signup-password-input-container input {
-  padding-right: 40px;
+  /* padding-right: 40px; */
   width: 100%;
   margin-bottom: 1rem;
+}
+.login-details .login-email-container {
+  padding-right: 20px;
+}
+
+.login-eye-container {
+  position: absolute;
+  top: 50%;
+  right: 7%;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .login-eye {
@@ -87,16 +113,18 @@ label {
 
 .eye-show-password {
   position: absolute;
-  top: 10%;
-  right: 10px;
+  top: 5%;
+  right: 25px;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 .eye-show-confirm-password {
   position: absolute;
-  bottom: 25%;
-  right: 10px;
+  bottom: 18%;
+  right: 25px;
   cursor: pointer;
+  padding-right: 5px;
 }
 
 .password-input-container {
@@ -108,7 +136,10 @@ label {
 .login-btn {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 2rem;
+  width: 100%;
 }
 .error-signup-password {
   position: absolute;
@@ -123,15 +154,35 @@ label {
   font-weight: bold;
 }
 
-button {
+.login-container button {
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #3cb4a0;
+  background-color: #b246a5;
   border: none;
   border-radius: 10px;
   color: white;
   font-size: 16px;
   cursor: pointer;
+  width: 60%;
+}
+
+.login-container button:hover {
+  cursor: pointer;
+  background-color: #421454;
+  transform: scale(1.07);
+}
+
+.login-container p {
+  width: 100%;
+  text-align: center;
+  margin-left: 20px;
+}
+.login-page input {
+  min-width: 85%;
+}
+
+.signup-text-container {
+  text-align: center;
 }
 
 /* Media queries for responsive design */

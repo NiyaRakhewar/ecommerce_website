@@ -30,13 +30,7 @@ export const Cart = () => {
           <div className="cart-container-header">
             <h3>MY CART ({state?.cart?.length})</h3>
           </div>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "7rem",
-            }}
-          >
+          <div className="cart-content-container">
             <div className="all-cart-cards">
               <div className="cart-card">
                 {state?.cart?.map((product) => {
@@ -110,8 +104,9 @@ export const Cart = () => {
                   <p className="price">{item.product_price * item.qty}</p>
                 </div>
               ))}
+              <hr />
 
-              <div className="cart-price-item">
+              <div className="cart-price-item-total-price">
                 <p>Total Price: </p>
                 <p className="price"> {totalBill}</p>
               </div>

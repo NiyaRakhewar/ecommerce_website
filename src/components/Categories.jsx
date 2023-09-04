@@ -26,7 +26,7 @@ export const Categories = () => {
                   alt="img"
                   src={item.categoryImage}
                 />
-                <h3 className="category-h3">
+                <h3 style={{ color: "#a312a3" }} className="category-h3">
                   {" "}
                   {item.categoryName.toUpperCase()}{" "}
                 </h3>

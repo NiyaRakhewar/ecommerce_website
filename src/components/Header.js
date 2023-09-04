@@ -51,7 +51,6 @@ export const Header = () => {
                 <FontAwesomeIcon
                   icon={faUser}
                   size="xl"
-                  style={{ color: "white" }}
                   className="header-profile-icon"
                 />
               </Link>
@@ -70,7 +69,6 @@ export const Header = () => {
               <FontAwesomeIcon
                 icon={faHeart}
                 size="xl"
-                style={{ color: "white" }}
                 className="wishlist-icon"
               />
             </Link>
@@ -84,7 +82,6 @@ export const Header = () => {
               <FontAwesomeIcon
                 icon={faCartShopping}
                 size="xl"
-                style={{ color: "white" }}
                 className="cart-icon"
               />
             </Link>

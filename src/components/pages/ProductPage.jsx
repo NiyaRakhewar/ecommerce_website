@@ -7,6 +7,7 @@ export const ProductPage = () => {
   return (
     <div className="productlist-content">
       <Sidebar />
+
       <ProductContent />
     </div>
   );
