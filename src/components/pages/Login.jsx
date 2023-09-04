@@ -125,7 +125,7 @@ export const Login = () => {
     <div className="login-page">
       <div className="login-container">
         <div className="login-details">
-          <h1>Sign In</h1>
+          <h1>Login</h1>
 
           <label>Email address : </label>
           <input

@@ -86,10 +86,10 @@ export const SignUp = () => {
   };
 
   return (
-    <div className="login-page">
+    <div style={{ marginTop: "-2%" }} className="login-page">
       <div className="login-container">
         <div className="login-details">
-          <h1>Sign Up</h1>
+          <h1 style={{ marginTop: "0" }}>Sign Up</h1>
           <label>First Name</label>
           <input
             value={signUpData.firstName}
@@ -198,7 +198,7 @@ export const SignUp = () => {
             </div>
           </div>
 
-          <div className="login-btn">
+          <div className="login-btn" style={{ marginTop: "2%" }}>
             <button onClick={handleSignUp}>Create New Account</button>
           </div>
           <div className="signup-text-container">
