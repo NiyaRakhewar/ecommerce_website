@@ -86,10 +86,10 @@ export const SignUp = () => {
   };
 
   return (
-    <div style={{ marginTop: "-2%" }} className="login-page">
+    <div style={{ marginTop: "0" }} className="login-page">
       <div className="login-container">
         <div className="login-details">
-          <h1 style={{ marginTop: "0" }}>Sign Up</h1>
+          <h1 style={{ marginTop: "-2%", marginBottom: "-2%" }}>Sign Up</h1>
           <label>First Name</label>
           <input
             value={signUpData.firstName}
