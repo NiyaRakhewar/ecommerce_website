@@ -52,7 +52,7 @@ export const Wishlist = () => {
     token &&
       toast.success("Quanity increased by 1", {
         autoClose: 1000,
-        position: "top-right",
+        position: "bottom-right",
         hideProgressBar: false,
         closeOnClick: true,
         pauseOnHover: true,
